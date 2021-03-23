@@ -29,22 +29,27 @@ function add(...args) {
 	60 - 69  D
 	0 - 59   NC
 */
-
-	function computeGrade(grades) {
-		for (let grade of grades) {
-		  if (grade >= 90 && grade <= 100) {
-			return "A";
-		  } else if (grade >= 80) {
-			return "B";
-		  } else if (grade >= 70) {
-			return "C";
-		  } else if (grade >= 60) {
-			return "D";
-		  } else if (grade < 60 && grade >= 0) {
-			return "NC";
-		  }
-		}
-	  }
+function computeGrade(grades) {
+	let sum = 0, avg = 0;
+	for(let i = 0; i < grades.length; i++){
+		sum += grades[i];
+	}
+	avg = sum / grades.length;
+    if (avg >= 90) {
+        return "A";
+    }
+    if (avg >= 80 && avg < 90) {
+        return "B";
+    }
+    if (avg >= 70 && avg < 80) {
+        return "C";
+    }
+    if(avg >= 60 && avg < 70){
+        return "D";
+    }
+	return "NC";
+}
+console.log(computeGrade[90,90,90]);
 	  module.exports = { pow, add2, add, computeGrade };
 
 
